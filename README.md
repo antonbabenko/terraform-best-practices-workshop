@@ -108,7 +108,7 @@ The result should be an uploaded file which is reachable by URL.
 
 All slides for the workshop are inside [slides](https://github.com/antonbabenko/terraform-best-practices-workshop/tree/master/slides) directory:
 
-  * [DevOpsDays Riga, September 2018](https://github.com/antonbabenko/terraform-best-practices-workshop/blob/master/terraform-workshop-anton-babenko-sep-2018.pdf)
+  * [DevOpsDays Riga, September 2018](https://github.com/antonbabenko/terraform-best-practices-workshop/raw/master/slides/terraform-workshop-anton-babenko-sep-2018.pdf)
 
 ## Feedback
 
