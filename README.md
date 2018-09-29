@@ -4,7 +4,7 @@ The goal of this workshop is to become familiar with some of best practices usin
 
 This workshop is a practical hands-on addition to [Terraform Best Practices guide](https://www.terraform-best-practices.com/).
 
-During or before the workshop, join Gitter chat room - [terraform-best-practices-workshop/Lobby](https://gitter.im/terraform-best-practices-workshop/Lobby)
+During or before the workshop, join Gitter chat room - [https://terraform-best-practices-workshop/Lobby](https://gitter.im/terraform-best-practices-workshop/Lobby)
 
 ## Instructor's preparation
 
@@ -103,6 +103,12 @@ Optional task: Add route53 support for zone by name
 The result should be an uploaded file which is reachable by URL.
 
 ### If there will be time available, we will learn about other related tools (Packer, Terragrunt, Atlantis, and few more)
+
+## Slides
+
+All slides for the workshop are inside [slides](https://github.com/antonbabenko/terraform-best-practices-workshop/tree/master/slides) directory:
+
+  * [DevOpsDays Riga, September 2018](https://github.com/antonbabenko/terraform-best-practices-workshop/blob/master/terraform-workshop-anton-babenko-sep-2018.pdf)
 
 ## Feedback
 
