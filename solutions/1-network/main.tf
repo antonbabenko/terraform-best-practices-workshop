@@ -75,7 +75,7 @@ module "autoscaling" {
   image_id                     = "${data.aws_ami.amazon_linux.id}"
   instance_type                = "t2.micro"
   security_groups              = ["${module.ec2_security_group.this_security_group_id}"]
-  user_data = "${data.template_file.ec2_userdata.rendered}"
+  user_data                    = "${data.template_file.ec2_userdata.rendered}"
   associate_public_ip_address  = true
   recreate_asg_when_lc_changes = true
 
@@ -105,11 +105,10 @@ module "ec2_security_group" {
   ingress_rules       = ["http-80-tcp", "ssh-tcp", "all-icmp"]
 
   egress_cidr_blocks = ["0.0.0.0/0"]
-  egress_rules = ["all-all"]
+  egress_rules       = ["all-all"]
 
   tags = "${local.tags}"
 }
-
 
 ##################################################
 # This code may not be working when there are no matching instances.

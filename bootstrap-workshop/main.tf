@@ -1,12 +1,12 @@
 terraform {
   required_version = "~> 0.11"
 
-//  backend "s3" {
-//    bucket = "tfworkshop"
-//    key    = "iam-users.tfstate"
-//    region = "eu-west-1"
-//    dynamodb_table = "tfworkshop"
-//  }
+  //  backend "s3" {
+  //    bucket = "tfworkshop"
+  //    key    = "iam-users.tfstate"
+  //    region = "eu-west-1"
+  //    dynamodb_table = "tfworkshop"
+  //  }
 }
 
 provider "aws" {
