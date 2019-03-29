@@ -1,4 +1,8 @@
 .terraform
-terraform.tfstate
 *.tfstate*
 terraform.tfvars
+
+
+# setup
+bootstrap-workshop/*.json
+bootstrap-workshop/*.tf.json

@@ -1,118 +1,55 @@
 # Terraform Best Practices Workshop materials
 
-The goal of this workshop is to become familiar with some of best practices using Terraform.
+The goal of this workshop is to become familiar with some of best practices using Terraform, discover existing solutions, Terraform modules and tools.
 
 This workshop is a practical hands-on addition to [Terraform Best Practices guide](https://www.terraform-best-practices.com/).
 
-During or before the workshop, join Gitter chat room - [https://terraform-best-practices-workshop/Lobby](https://gitter.im/terraform-best-practices-workshop/Lobby)
-
-## Instructor's preparation
-
- - [ ] Open new AWS account before the workshop, S3 bucket for remote states (`tfworkshop`), DynamoDB table for locking (`tfworkshop`)
- - [ ] Create IAM users in `Developers` group which has power-user access in this AWS account
- - [ ] Grant write access to this workshop repository to have code from attendees there (protect master branch)
- - [ ] Grant write access to terraform-aws-s3-bucket and terraform-aws-s3-object modules repositories (protect master branch)
 
 ### Attendee's checklist
 
-* Install latest version of [Terraform](https://www.terraform.io/intro/getting-started/install.html).
-* Install latest version of [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/installing.html).
-* Make sure that you have [GitHub](https://github.com/) account created.
-* Mac, Linux or Windows - all is fine as long as you can use it. If you want, you can get Linux box running using Vagrant+VirtualBox and install software from above on it.
+- [ ] Follow `@antonbabenko` on [GitHub](https://github.com/antonbabenko), [Twitter](https://twitter.com/antonbabenko), [Linkedin](https://linkedin.com/in/antonbabenko).
+- [ ] Join chat room on Gitter during or before the workshop - [gitter.im/terraform-best-practices-workshop/Lobby](https://gitter.im/terraform-best-practices-workshop/Lobby).
+- [ ] Install latest version of [Terraform 0.11](https://www.terraform.io/intro/getting-started/install.html).
+- [ ] Install latest version of [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/installing.html).
+- [ ] Make sure that you have [GitHub](https://github.com/) account created.
+- [ ] Mac, Linux or Windows - all is fine as long as you can use it. If you want, you can get Linux box running using Vagrant+VirtualBox and install software from above on it.
+- [ ] Access credentials to manage resources in workshop's AWS account will be provided at the beginning of the workshop.
 
-## Practical task: Let's host a static web-site using AWS S3 and Route53
+
+## Workshop's goal (Terraform AWS modules)
+
+Learn how to manage AWS infrastructure using existing building blocks - [terraform-aws-modules](https://github.com/terraform-aws-modules).
 
 ### Agenda for the workshop
 
-* Resource modules
-* Infrastructure modules
-* Composition
-* Evolution
-* Combination and orchestration
-* What's next?
+- [x] [Terraform AWS modules](https://github.com/terraform-aws-modules) is a collection of reusable building blocks of AWS infrastructure supported by the community.
+- [x] Task "Network Stack" - VPC, Autoscaling, Security Group, ELB, ALB, RDS. Read [tasks/1-network/README.md](https://github.com/antonbabenko/terraform-best-practices-workshop/raw/master/tasks/1-network/README.md) for more details.
+- [ ] Task "IAM resources" - IAM users, groups, permissions, roles, multiple AWS accounts, assuming roles.
+- [ ] Task "Working with Terraform in a team using Atlantis" - Setup [Atlantis](https://runatlantis.io) to run on AWS Fargate using [terraform-aws-atlantis module](https://github.com/terraform-aws-modules/terraform-aws-atlantis) and integrate it with infrastructure repository.
 
-### Resource modules
 
-> Make 2 resource modules which create AWS S3 resources (bucket and object).
-> These modules should be very flexible, so that anyone can use them.
+### Resources for workshop
 
-Clone these repositories, make your own branch (`git checkout -b my-branch-name`), commit and push code to your branch, open a pull-request to review:
+* [Official Terraform documentation](https://www.terraform.io/docs/providers/aws/index.html)
+* [Official Terraform AWS provider documentation](https://www.terraform.io/docs/providers/aws/index.html)
+* [pre-commit-terraform](https://github.com/antonbabenko/pre-commit-terraform) to have Terraform code automatically formatted before committing.
+* [terraform-docs](https://github.com/segmentio/terraform-docs) to have documentation for variables and outputs automatically updated before committing.
 
-  * [terraform-aws-s3-bucket](https://github.com/terraform-aws-modules/terraform-aws-s3-bucket)
-  * [terraform-aws-s3-object](https://github.com/terraform-aws-modules/terraform-aws-s3-object)
 
-Resource modules should have these properties: clean code, feature-rich, sane defaults, tests/examples, documentation. Check ["Using Terraform continuously — Common traits in modules"](https://medium.com/@anton.babenko/using-terraform-continuously-common-traits-in-modules-8036b71764db) for more information.
 
-#### Considerations:
+## Instructor's checklist
 
-  * Use existing bucket vs create new one?
-  * Create one vs many resources (buckets and objects) using one module?
+ - [x] Verify access to workshop AWS account (`905033465232`), S3 bucket for remote states (`tfworkshop`), DynamoDB table for locking (`tfworkshop`). Region - `eu-west-1`.
+ - [x] Before workshop - create IAM users and IAM group (`developers`) by running `cd bootstrap-workshop && make apply`.
+ - [ ] After workshop - remove IAM users and IAM group by running `cd bootstrap-workshop && make destroy`.
 
-#### Use:
 
-  * [pre-commit-terraform](https://github.com/antonbabenko/pre-commit-terraform)
-  * [terraform-docs](https://github.com/segmentio/terraform-docs)
+## About author
 
-The result should be 2 resource modules, which we will use in the next task.
+This workshop has been created and provided by [Anton Babenko](https://github.co/antonbabenko). Some rights reserved. Slides for many of my talks and trainings are available [here](https://www.slideshare.net/AntonBabenko/).
 
-### Infrastructure modules
+Send me an email to [anton@antonbabenko.com](mailto:anton@antonbabenko.com) to provide feedback or if you are looking for Terraform trainer or mentor.
 
-Create infrastructure modules called "static web-site" with these properties:
-
-* Should support conditional creation of bucket or use existing one:
-
-  * bucket_name is required
-  * create_bucket = true/false
-  * use data-source or call a resource module
-
-* Tags should be required, because we want to track expenses
-
-#### Use:
-
-  * pre-commit-terraform (when hosted in a separate repository)
-  * terraform-docs
-
-The result should be an infrastructure module `static-web-site` which we will keep in this repo under `modules/static-web-site`, because it is not very generic, contains some enforcements (tagging), and satisfies the needs of this workshop (for now).
-
-### Composition
-
-There is a single AWS account, where resources for 2 environments (prod and staging) are located side-by-side in a single region (eu-west-1, for example).
-
-Each attendee has his own project directory where this task should be completed - make your directory inside `projects` directory with your name.
-
-#### Considerations:
-
-* Resources should share nothing between environments
-* Remote state should match project directory and S3 bucket: to create. Eg, `project/demo-user/eu-west-1/prod/terraform.tfstate`
-
-### Evolution
-
-Changing something here and there... How would you refactor this code?
-Usage of `terraform state mv` command.
-
-### Combination and orchestration
-
-terragrunt (?) & data sources as glue
-
-Optional task: Add route53 support for zone by name
-
-### What's next?
-
-* Make infrastructure module which manages several connected&related resources: create bucket, upload files there, create route53 zone and give everyone 2 subdomains (prod and staging).
-
-The result should be an uploaded file which is reachable by URL.
-
-### If there will be time available, we will learn about other related tools (Packer, Terragrunt, Atlantis, and few more)
-
-## Slides
-
-All slides for the workshop are inside [slides](https://github.com/antonbabenko/terraform-best-practices-workshop/tree/master/slides) directory:
-
-  * [DevOpsDays Riga, September 2018](https://github.com/antonbabenko/terraform-best-practices-workshop/raw/master/slides/terraform-workshop-anton-babenko-sep-2018.pdf)
-
-## Feedback
-
-Please provide your feedback to me by [email](mailto:anton@antonbabenko.com).
 
 ## License
 
