@@ -26,7 +26,7 @@ Learn how to manage AWS infrastructure using existing building blocks - [terrafo
 ### Agenda
 
 - [x] [Terraform AWS modules](https://github.com/terraform-aws-modules) is a collection of reusable building blocks of AWS infrastructure supported by the community.
-- [x] Task "Network Stack" - VPC, Autoscaling, Security Group, ELB, ALB, RDS. Read [tasks/1-network/README.md](https://github.com/antonbabenko/terraform-best-practices-workshop/raw/master/tasks/1-network/README.md) for more details.
+- [x] Task "Network Stack" - VPC, Autoscaling, Security Group, ELB, ALB, RDS. Read [tasks/1-network/README.md](https://github.com/antonbabenko/terraform-best-practices-workshop/blob/master/tasks/1-network/README.md) for more details.
 - [ ] Task "IAM resources" - IAM users, groups, permissions, roles, multiple AWS accounts, assuming roles.
 - [ ] Task "Working with Terraform in a team using Atlantis" - Setup [Atlantis](https://runatlantis.io) to run on AWS Fargate using [terraform-aws-atlantis module](https://github.com/terraform-aws-modules/terraform-aws-atlantis) and integrate it with infrastructure repository.
 
