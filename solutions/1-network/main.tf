@@ -4,16 +4,32 @@
 provider "aws" {
   region  = "eu-west-1"
   version = ">= 2.4.0"
+
+  allowed_account_ids = ["905033465232"] # 835367859851 - anton-demo; 905033465232 - tfworkshop
+
+  //  # Alternatively, IAM role can be assumed
+  //  assume_role {
+  //    role_arn = "arn:aws:iam::905033465232:role/OrganizationAccountAccessRole"
+  //  }
 }
 
 locals {
+  #######################
+  # EDIT BELOW THIS LINE
+  #######################
   name = "tfworkshop-userX"
 
   tags = {
     Name  = "${local.name}"
     Owner = "userX"
   }
+
+  #######################
+  # EDIT ABOVE THIS LINE
+  #######################
 }
+
+data "aws_caller_identity" "this" {}
 
 ##################################################
 # VPC
@@ -115,8 +131,9 @@ module "ec2_security_group" {
 # Alternatively use AWS CLI:
 # aws ec2 describe-instances --filters 'Name=tag:Name,Values=tfworkshop-*' --output json --region eu-west-1 | jq -r '.Reservations[].Instances[].PublicIpAddress'
 ##################################################
-data "aws_instance" "created" {
-  instance_tags = "${local.tags}"
+//data "aws_instance" "created" {
+//  instance_tags = "${local.tags}"
+//
+//  depends_on = ["module.autoscaling"]
+//}
 
-  depends_on = ["module.autoscaling"]
-}
