@@ -2,8 +2,8 @@
 # 1. Set values of AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY environment variables.
 
 provider "aws" {
-  region  = "eu-west-1"
-  version = ">= 2.4.0"
+  region  = "us-west-1"
+  version = ">= 2.12.0"
 
   allowed_account_ids = ["905033465232"] # 835367859851 - anton-demo; 905033465232 - tfworkshop
 
