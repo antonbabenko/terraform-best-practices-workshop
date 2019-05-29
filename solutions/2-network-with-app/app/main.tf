@@ -22,10 +22,24 @@ data "terraform_remote_state" "network" {
 
   config {
     bucket = "tmp-tfstates"
-    region = "us-west-1"
-    key    = "us-west-1/network/terraform.tfstate"
+    region = "us-west-2"
+    key    = "us-west-2/network/terraform.tfstate"
   }
 }
+
+module "my_app" {
+  source = "git@github.com:antonbabenko/terraform-best-practices-workshop.git//modules/application"
+
+  filename = "text.txt"
+  content  = "Hello, I am using VPC ID: ${data.terraform_remote_state.network.vpc_id}"
+}
+
+output "s3_file_url" {
+  value = "${module.my_app.???}"
+}
+
+// Show the URL of the file uploaded to S3
+
 
 // @todo: Copy the rest of configuration where application resources were created from solutions/1-network/main.tf
 
