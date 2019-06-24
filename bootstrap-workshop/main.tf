@@ -1,5 +1,9 @@
 terraform {
-  required_version = "~> 0.11"
+  required_version = "~> 0.12"
+
+  required_providers {
+    aws = "~> 2.0"
+  }
 
   //  backend "s3" {
   //    bucket = "tfworkshop"
@@ -10,7 +14,6 @@ terraform {
 }
 
 provider "aws" {
-  version             = "~> 2.3.0"
   region              = "eu-west-1"
   allowed_account_ids = ["905033465232"]
 

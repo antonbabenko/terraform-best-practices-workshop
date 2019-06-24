@@ -3,8 +3,9 @@
 
 local users = import "users.json";
 
-local source_iam_user = "terraform-aws-modules/iam/aws//modules/iam-user?ref=v0.4.0";
-local source_iam_group = "terraform-aws-modules/iam/aws//modules/iam-group-with-policies?ref=v0.4.0";
+local source_iam_user = "git::https://github.com/terraform-aws-modules/terraform-aws-iam.git//modules/iam-user?ref=v2.1.0";
+local source_iam_group = "git::https://github.com/terraform-aws-modules/terraform-aws-iam.git//modules/iam-group-with-policies?ref=v2.1.0";
+local aws_region = "eu-west-1";
 
 local users_fixed = [
   u + { replaced_username: std.strReplace(u.aws, ".", "_") }
@@ -33,7 +34,7 @@ local users_fixed = [
   ,
   output: {
     [user.replaced_username]: {
-      value: "export AWS_ACCESS_KEY_ID=${module." + user.replaced_username + ".this_iam_access_key_id} AWS_SECRET_ACCESS_KEY=${module." + user.replaced_username + ".this_iam_access_key_secret}",
+      value: "export AWS_ACCESS_KEY_ID=${module." + user.replaced_username + ".this_iam_access_key_id} AWS_SECRET_ACCESS_KEY=${module." + user.replaced_username + ".this_iam_access_key_secret} AWS_REGION=" + aws_region,
     } for user in users_fixed
   }
 }

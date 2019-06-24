@@ -7,7 +7,7 @@ Create EC2 instance running Amazon Linux AMI in the public subnet (default VPC) 
 
 ## Tasks
 
-1. Make sure to install Terraform 0.11
+1. Make sure to install Terraform 0.12
 1. Start with updating content of `main.tf` in this directory (see sub-tasks in that file)
 1. Optionally, split content into `main.tf`, `variables.tf` and `outputs.tf` for better readability
 

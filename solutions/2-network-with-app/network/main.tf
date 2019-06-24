@@ -3,13 +3,13 @@
 
 provider "aws" {
   region  = "us-west-2"
-  version = ">= 2.12.0"
+  version = "~> 2.0"
 }
 
 // Enable remote state to keep them in the shared S3 bucket (should be created in advance outside of terraform)
 terraform {
   backend "s3" {
-    region = "us-west-2"
+    region = "us-west-1"
     bucket = "tmp-tfstates"
     key    = "us-west-1/network/terraform.tfstate"
   }
@@ -22,5 +22,5 @@ resource "aws_vpc" "this" {
 }
 
 output "vpc_id" {
-  value = "${aws_vpc.this.id}"
+  value = aws_vpc.this.id
 }

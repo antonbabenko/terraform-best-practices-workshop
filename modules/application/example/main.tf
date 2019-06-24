@@ -10,5 +10,5 @@ module "application" {
 }
 
 output "s3_file" {
-  value = "${module.application.file_url}"
+  value = module.application.file_url
 }

@@ -3,7 +3,7 @@
 
 provider "aws" {
   region  = "us-west-1"
-  version = ">= 2.12.0"
+  version = "~> 2.0"
 
   allowed_account_ids = ["905033465232"] # 835367859851 - anton-demo; 905033465232 - tfworkshop
 
@@ -20,25 +20,25 @@ locals {
   name = "tfworkshop-userX"
 
   tags = {
-    Name  = "${local.name}"
+    Name  = local.name
     Owner = "userX"
   }
-
   #######################
   # EDIT ABOVE THIS LINE
   #######################
 }
 
-data "aws_caller_identity" "this" {}
+data "aws_caller_identity" "this" {
+}
 
 ##################################################
 # VPC
 ##################################################
 module "vpc" {
   source  = "terraform-aws-modules/vpc/aws"
-  version = "1.60.0"
+  version = "~> 2.0"
 
-  name = "${local.name}"
+  name = local.name
 
   cidr = "10.10.0.0/16"
 
@@ -52,7 +52,7 @@ module "vpc" {
   enable_nat_gateway = true
   single_nat_gateway = true
 
-  tags = "${local.tags}"
+  tags = local.tags
 }
 
 ##################################################
@@ -79,51 +79,52 @@ runcmd:
   - yum install -y nginx
   - service nginx start
 EOF
+
 }
 
 module "autoscaling" {
-  source  = "terraform-aws-modules/autoscaling/aws"
-  version = "2.9.1"
+  source = "terraform-aws-modules/autoscaling/aws"
+  version = "~> 3.0"
 
-  name = "${local.name}"
+  name = local.name
 
   # Launch configuration
-  image_id                     = "${data.aws_ami.amazon_linux.id}"
-  instance_type                = "t2.micro"
-  security_groups              = ["${module.ec2_security_group.this_security_group_id}"]
-  user_data                    = "${data.template_file.ec2_userdata.rendered}"
-  associate_public_ip_address  = true
+  image_id = data.aws_ami.amazon_linux.id
+  instance_type = "t2.micro"
+  security_groups = [module.ec2_security_group.this_security_group_id]
+  user_data = data.template_file.ec2_userdata.rendered
+  associate_public_ip_address = true
   recreate_asg_when_lc_changes = true
 
   # Autoscaling group
-  vpc_zone_identifier = ["${module.vpc.public_subnets}"]
-  health_check_type   = "EC2"
-  min_size            = 1
-  max_size            = 1
-  desired_capacity    = 1
+  vpc_zone_identifier = module.vpc.public_subnets
+  health_check_type = "EC2"
+  min_size = 1
+  max_size = 1
+  desired_capacity = 1
 
-  tags_as_map = "${local.tags}"
+  tags_as_map = local.tags
 }
 
 ##################################################
 # EC2 security group
 ##################################################
 module "ec2_security_group" {
-  source  = "terraform-aws-modules/security-group/aws"
-  version = "2.16.0"
+  source = "terraform-aws-modules/security-group/aws"
+  version = "~> 3.0"
 
-  name = "${local.name}"
+  name = local.name
 
   description = "EC2 security group with publicly open HTTP and SSH ports"
-  vpc_id      = "${module.vpc.vpc_id}"
+  vpc_id = module.vpc.vpc_id
 
   ingress_cidr_blocks = ["0.0.0.0/0"]
-  ingress_rules       = ["http-80-tcp", "ssh-tcp", "all-icmp"]
+  ingress_rules = ["http-80-tcp", "ssh-tcp", "all-icmp"]
 
   egress_cidr_blocks = ["0.0.0.0/0"]
-  egress_rules       = ["all-all"]
+  egress_rules = ["all-all"]
 
-  tags = "${local.tags}"
+  tags = local.tags
 }
 
 ##################################################
@@ -136,4 +137,3 @@ module "ec2_security_group" {
 //
 //  depends_on = ["module.autoscaling"]
 //}
-
