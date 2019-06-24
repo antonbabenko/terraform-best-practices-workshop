@@ -3,7 +3,7 @@
 
 provider "aws" {
   region  = "us-west-1"
-  version = ">= 2.12.0"
+  version = "~> 2.0"
 }
 
 variable "name" {
@@ -22,11 +22,11 @@ data "aws_vpc" "default" {
 }
 
 data "aws_subnet_ids" "all" {
-  vpc_id = "${data.aws_vpc.default.id}"
+  vpc_id = data.aws_vpc.default.id
 }
 
 data "aws_security_group" "default" {
-  vpc_id = "${data.aws_vpc.default.id}"
+  vpc_id = data.aws_vpc.default.id
   name   = "default"
 }
 
@@ -53,15 +53,15 @@ data "aws_ami" "amazon_linux" {
 }
 
 resource "aws_instance" "web" {
-  ami           = "${data.aws_ami.amazon_linux.image_id}"
-  instance_type = "${var.instance_type}"
-  subnet_id     = "${element(data.aws_subnet_ids.all.ids, 0)}"
+  ami           = data.aws_ami.amazon_linux.image_id
+  instance_type = var.instance_type
+  subnet_id     = element(tolist(data.aws_subnet_ids.all.ids), 0)
 
-  tags {
-    Name = "${var.name}"
+  tags = {
+    Name = var.name
   }
 }
 
 output "public_ip" {
-  value = "${aws_instance.web.public_ip}"
+  value = aws_instance.web.public_ip
 }

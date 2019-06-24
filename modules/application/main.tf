@@ -12,13 +12,13 @@ variable "s3_bucket" {
 }
 
 data "aws_s3_bucket" "this" {
-  bucket = "${var.s3_bucket}"
+  bucket = var.s3_bucket
 }
 
 resource "aws_s3_bucket_object" "this" {
-  bucket  = "${var.s3_bucket}"
+  bucket  = var.s3_bucket
   key     = "files/${var.key}"
-  content = "${var.content}"
+  content = var.content
   acl     = "public-read"
 }
 

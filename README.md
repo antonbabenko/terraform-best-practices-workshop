@@ -11,7 +11,7 @@ Send your feedback by email to [anton@antonbabenko.com](mailto:anton@antonbabenk
 
 - [ ] Follow `@antonbabenko` on [GitHub](https://github.com/antonbabenko), [Twitter](https://twitter.com/antonbabenko), [Linkedin](https://linkedin.com/in/antonbabenko).
 - [ ] Join chat room on Gitter during or before the workshop - [gitter.im/terraform-best-practices-workshop/Lobby](https://gitter.im/terraform-best-practices-workshop/Lobby).
-- [ ] Install latest version of [Terraform 0.11](https://www.terraform.io/intro/getting-started/install.html).
+- [ ] Install latest version of [Terraform 0.12](https://learn.hashicorp.com/terraform/getting-started/install.html).
 - [ ] Install latest version of [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/installing.html).
 - [ ] Make sure that you have [GitHub](https://github.com/) account created.
 - [ ] Mac, Linux or Windows - all is fine as long as you can use it. If you want, you can get Linux box running using Vagrant+VirtualBox and install software from above on it.

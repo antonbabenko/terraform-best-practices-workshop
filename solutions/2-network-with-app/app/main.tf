@@ -3,7 +3,7 @@
 
 provider "aws" {
   region  = "us-west-1"
-  version = ">= 2.12.0"
+  version = "~> 2.0"
 }
 
 // Enable remote state to keep tfstate in the shared S3 bucket (should be created in advance outside of terraform)
@@ -34,9 +34,9 @@ module "my_app" {
   content  = "Hello, I am using VPC ID: ${data.terraform_remote_state.network.vpc_id}"
 }
 
-output "s3_file_url" {
-  value = "${module.my_app.???}"
-}
+//output "s3_file_url" {
+//  value = module.my_app.???
+//}
 
 // Show the URL of the file uploaded to S3
 
