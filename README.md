@@ -15,7 +15,7 @@ Send your feedback by email to [anton@antonbabenko.com](mailto:anton@antonbabenk
 - [ ] Install latest version of [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/installing.html).
 - [ ] Make sure that you have [GitHub](https://github.com/) account created.
 - [ ] Mac, Linux or Windows - all is fine as long as you can use it. If you want, you can get Linux box running using Vagrant+VirtualBox and install software from above on it.
-- [ ] Access credentials to manage resources in workshop's AWS account will be provided at the beginning of the workshop.
+- [ ] Access credentials to manage resources in workshop's AWS account will be provided at the beginning of the workshop (if requested by attendees).
 
 
 ## "Terraform AWS modules" workshop goal
@@ -26,6 +26,7 @@ Learn how to manage AWS infrastructure using existing building blocks - [terrafo
 ### Agenda
 
 - [x] [Terraform AWS modules](https://github.com/terraform-aws-modules) is a collection of reusable building blocks of AWS infrastructure supported by the community.
+- [x] Explore [Terraform Registry](https://registry.terraform.io) and check out [terraform-aws-modules](https://registry.terraform.io/modules/terraform-aws-modules) listed there.
 - [x] Task "Basic Terraform". Read [tasks/0-basic/README.md](https://github.com/antonbabenko/terraform-best-practices-workshop/blob/master/tasks/0-basic/README.md) for more details.
 - [x] Task "Network Stack" - VPC, Autoscaling, Security Group, ELB, ALB, RDS. Read [tasks/1-network/README.md](https://github.com/antonbabenko/terraform-best-practices-workshop/blob/master/tasks/1-network/README.md) for more details.
 - [ ] Task "IAM resources" - IAM users, groups, permissions, roles, multiple AWS accounts, assuming roles.
@@ -43,7 +44,7 @@ Learn how to manage AWS infrastructure using existing building blocks - [terrafo
 ## Instructor's checklist
 
  - [x] Verify access to workshop AWS account (`905033465232`), S3 bucket for remote states (`tfworkshop`), DynamoDB table for locking (`tfworkshop`). Region - `eu-west-1`.
- - [x] Before workshop - create IAM users and IAM group (`developers`) by running `cd bootstrap-workshop && make apply`.
+ - [x] Before workshop - create IAM users and IAM group (`developers`) by running `cd bootstrap-workshop-jsonnet && make apply`.
  - [ ] After workshop - remove IAM users and IAM group by running `cd bootstrap-workshop && make destroy`.
 
 

@@ -2,7 +2,7 @@
 
 ## Goal
 
-Create EC2 instance running Amazon Linux AMI in the public subnet (default VPC) using aws_instance resource and aws_ami data-source.
+Create EC2 instance running Amazon Linux AMI in the public subnet (default VPC) using [aws_instance](https://www.terraform.io/docs/providers/aws/r/instance.html) resource and [aws_ami](https://www.terraform.io/docs/providers/aws/d/ami.html) data-source.
 
 
 ## Tasks

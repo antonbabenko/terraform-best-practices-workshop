@@ -83,25 +83,25 @@ EOF
 }
 
 module "autoscaling" {
-  source = "terraform-aws-modules/autoscaling/aws"
+  source  = "terraform-aws-modules/autoscaling/aws"
   version = "~> 3.0"
 
   name = local.name
 
   # Launch configuration
-  image_id = data.aws_ami.amazon_linux.id
-  instance_type = "t2.micro"
-  security_groups = [module.ec2_security_group.this_security_group_id]
-  user_data = data.template_file.ec2_userdata.rendered
-  associate_public_ip_address = true
+  image_id                     = data.aws_ami.amazon_linux.id
+  instance_type                = "t2.micro"
+  security_groups              = [module.ec2_security_group.this_security_group_id]
+  user_data                    = data.template_file.ec2_userdata.rendered
+  associate_public_ip_address  = true
   recreate_asg_when_lc_changes = true
 
   # Autoscaling group
   vpc_zone_identifier = module.vpc.public_subnets
-  health_check_type = "EC2"
-  min_size = 1
-  max_size = 1
-  desired_capacity = 1
+  health_check_type   = "EC2"
+  min_size            = 1
+  max_size            = 1
+  desired_capacity    = 1
 
   tags_as_map = local.tags
 }
@@ -110,19 +110,19 @@ module "autoscaling" {
 # EC2 security group
 ##################################################
 module "ec2_security_group" {
-  source = "terraform-aws-modules/security-group/aws"
+  source  = "terraform-aws-modules/security-group/aws"
   version = "~> 3.0"
 
   name = local.name
 
   description = "EC2 security group with publicly open HTTP and SSH ports"
-  vpc_id = module.vpc.vpc_id
+  vpc_id      = module.vpc.vpc_id
 
   ingress_cidr_blocks = ["0.0.0.0/0"]
-  ingress_rules = ["http-80-tcp", "ssh-tcp", "all-icmp"]
+  ingress_rules       = ["http-80-tcp", "ssh-tcp", "all-icmp"]
 
   egress_cidr_blocks = ["0.0.0.0/0"]
-  egress_rules = ["all-all"]
+  egress_rules       = ["all-all"]
 
   tags = local.tags
 }

@@ -10,7 +10,7 @@ validate:
 	terraform init && terraform validate
 
 generate:
-	cat users.yml | yaml2json --indent-json > users.json
+	cat users.yml | yaml2json --indent-json 2 > users.json
 	jsonnet -o users.tf.json users.tf.jsonnet
 
 plan: generate

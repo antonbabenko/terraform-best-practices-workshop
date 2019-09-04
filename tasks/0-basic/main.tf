@@ -1,5 +1,5 @@
 # Sub-tasks:
-# 1. Create single AWS EC2 instance (web)
+# 1. Create a single AWS EC2 instance (web)
 # 2. Add variables for all required arguments
 # 3. Add data source to fetch ID of default security group, subnet and ID of Amazon linux AMI
 
