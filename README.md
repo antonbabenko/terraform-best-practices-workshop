@@ -45,7 +45,7 @@ Learn how to manage AWS infrastructure using existing building blocks - [terrafo
 
  - [x] Verify access to workshop AWS account (`905033465232`), S3 bucket for remote states (`tfworkshop`), DynamoDB table for locking (`tfworkshop`). Region - `eu-west-1`.
  - [x] Before workshop - create IAM users and IAM group (`developers`) by running `cd bootstrap-workshop-jsonnet && make apply`.
- - [ ] After workshop - remove IAM users and IAM group by running `cd bootstrap-workshop-jsonnet && make destroy`.
+ - [x] After workshop - remove all resources in the whole AWS account by running `cd bootstrap-workshop-jsonnet && make aws-nuke-for-real` or remove just IAM users and IAM group by running `cd bootstrap-workshop-jsonnet && make destroy`.
 
 
 ## License
