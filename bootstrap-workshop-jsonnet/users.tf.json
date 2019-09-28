@@ -27,147 +27,147 @@
             "user20"
          ],
          "name": "developers",
-         "source": "git::https://github.com/terraform-aws-modules/terraform-aws-iam.git//modules/iam-group-with-policies?ref=v2.1.0"
+         "source": "git::https://github.com/terraform-aws-modules/terraform-aws-iam.git//modules/iam-group-with-policies?ref=v2.3.0"
       },
       "user1": {
          "create_iam_user_login_profile": false,
          "force_destroy": true,
          "name": "user1",
          "password_reset_required": false,
-         "source": "git::https://github.com/terraform-aws-modules/terraform-aws-iam.git//modules/iam-user?ref=v2.1.0"
+         "source": "git::https://github.com/terraform-aws-modules/terraform-aws-iam.git//modules/iam-user?ref=v2.3.0"
       },
       "user10": {
          "create_iam_user_login_profile": false,
          "force_destroy": true,
          "name": "user10",
          "password_reset_required": false,
-         "source": "git::https://github.com/terraform-aws-modules/terraform-aws-iam.git//modules/iam-user?ref=v2.1.0"
+         "source": "git::https://github.com/terraform-aws-modules/terraform-aws-iam.git//modules/iam-user?ref=v2.3.0"
       },
       "user11": {
          "create_iam_user_login_profile": false,
          "force_destroy": true,
          "name": "user11",
          "password_reset_required": false,
-         "source": "git::https://github.com/terraform-aws-modules/terraform-aws-iam.git//modules/iam-user?ref=v2.1.0"
+         "source": "git::https://github.com/terraform-aws-modules/terraform-aws-iam.git//modules/iam-user?ref=v2.3.0"
       },
       "user12": {
          "create_iam_user_login_profile": false,
          "force_destroy": true,
          "name": "user12",
          "password_reset_required": false,
-         "source": "git::https://github.com/terraform-aws-modules/terraform-aws-iam.git//modules/iam-user?ref=v2.1.0"
+         "source": "git::https://github.com/terraform-aws-modules/terraform-aws-iam.git//modules/iam-user?ref=v2.3.0"
       },
       "user13": {
          "create_iam_user_login_profile": false,
          "force_destroy": true,
          "name": "user13",
          "password_reset_required": false,
-         "source": "git::https://github.com/terraform-aws-modules/terraform-aws-iam.git//modules/iam-user?ref=v2.1.0"
+         "source": "git::https://github.com/terraform-aws-modules/terraform-aws-iam.git//modules/iam-user?ref=v2.3.0"
       },
       "user14": {
          "create_iam_user_login_profile": false,
          "force_destroy": true,
          "name": "user14",
          "password_reset_required": false,
-         "source": "git::https://github.com/terraform-aws-modules/terraform-aws-iam.git//modules/iam-user?ref=v2.1.0"
+         "source": "git::https://github.com/terraform-aws-modules/terraform-aws-iam.git//modules/iam-user?ref=v2.3.0"
       },
       "user15": {
          "create_iam_user_login_profile": false,
          "force_destroy": true,
          "name": "user15",
          "password_reset_required": false,
-         "source": "git::https://github.com/terraform-aws-modules/terraform-aws-iam.git//modules/iam-user?ref=v2.1.0"
+         "source": "git::https://github.com/terraform-aws-modules/terraform-aws-iam.git//modules/iam-user?ref=v2.3.0"
       },
       "user16": {
          "create_iam_user_login_profile": false,
          "force_destroy": true,
          "name": "user16",
          "password_reset_required": false,
-         "source": "git::https://github.com/terraform-aws-modules/terraform-aws-iam.git//modules/iam-user?ref=v2.1.0"
+         "source": "git::https://github.com/terraform-aws-modules/terraform-aws-iam.git//modules/iam-user?ref=v2.3.0"
       },
       "user17": {
          "create_iam_user_login_profile": false,
          "force_destroy": true,
          "name": "user17",
          "password_reset_required": false,
-         "source": "git::https://github.com/terraform-aws-modules/terraform-aws-iam.git//modules/iam-user?ref=v2.1.0"
+         "source": "git::https://github.com/terraform-aws-modules/terraform-aws-iam.git//modules/iam-user?ref=v2.3.0"
       },
       "user18": {
          "create_iam_user_login_profile": false,
          "force_destroy": true,
          "name": "user18",
          "password_reset_required": false,
-         "source": "git::https://github.com/terraform-aws-modules/terraform-aws-iam.git//modules/iam-user?ref=v2.1.0"
+         "source": "git::https://github.com/terraform-aws-modules/terraform-aws-iam.git//modules/iam-user?ref=v2.3.0"
       },
       "user19": {
          "create_iam_user_login_profile": false,
          "force_destroy": true,
          "name": "user19",
          "password_reset_required": false,
-         "source": "git::https://github.com/terraform-aws-modules/terraform-aws-iam.git//modules/iam-user?ref=v2.1.0"
+         "source": "git::https://github.com/terraform-aws-modules/terraform-aws-iam.git//modules/iam-user?ref=v2.3.0"
       },
       "user2": {
          "create_iam_user_login_profile": false,
          "force_destroy": true,
          "name": "user2",
          "password_reset_required": false,
-         "source": "git::https://github.com/terraform-aws-modules/terraform-aws-iam.git//modules/iam-user?ref=v2.1.0"
+         "source": "git::https://github.com/terraform-aws-modules/terraform-aws-iam.git//modules/iam-user?ref=v2.3.0"
       },
       "user20": {
          "create_iam_user_login_profile": false,
          "force_destroy": true,
          "name": "user20",
          "password_reset_required": false,
-         "source": "git::https://github.com/terraform-aws-modules/terraform-aws-iam.git//modules/iam-user?ref=v2.1.0"
+         "source": "git::https://github.com/terraform-aws-modules/terraform-aws-iam.git//modules/iam-user?ref=v2.3.0"
       },
       "user3": {
          "create_iam_user_login_profile": false,
          "force_destroy": true,
          "name": "user3",
          "password_reset_required": false,
-         "source": "git::https://github.com/terraform-aws-modules/terraform-aws-iam.git//modules/iam-user?ref=v2.1.0"
+         "source": "git::https://github.com/terraform-aws-modules/terraform-aws-iam.git//modules/iam-user?ref=v2.3.0"
       },
       "user4": {
          "create_iam_user_login_profile": false,
          "force_destroy": true,
          "name": "user4",
          "password_reset_required": false,
-         "source": "git::https://github.com/terraform-aws-modules/terraform-aws-iam.git//modules/iam-user?ref=v2.1.0"
+         "source": "git::https://github.com/terraform-aws-modules/terraform-aws-iam.git//modules/iam-user?ref=v2.3.0"
       },
       "user5": {
          "create_iam_user_login_profile": false,
          "force_destroy": true,
          "name": "user5",
          "password_reset_required": false,
-         "source": "git::https://github.com/terraform-aws-modules/terraform-aws-iam.git//modules/iam-user?ref=v2.1.0"
+         "source": "git::https://github.com/terraform-aws-modules/terraform-aws-iam.git//modules/iam-user?ref=v2.3.0"
       },
       "user6": {
          "create_iam_user_login_profile": false,
          "force_destroy": true,
          "name": "user6",
          "password_reset_required": false,
-         "source": "git::https://github.com/terraform-aws-modules/terraform-aws-iam.git//modules/iam-user?ref=v2.1.0"
+         "source": "git::https://github.com/terraform-aws-modules/terraform-aws-iam.git//modules/iam-user?ref=v2.3.0"
       },
       "user7": {
          "create_iam_user_login_profile": false,
          "force_destroy": true,
          "name": "user7",
          "password_reset_required": false,
-         "source": "git::https://github.com/terraform-aws-modules/terraform-aws-iam.git//modules/iam-user?ref=v2.1.0"
+         "source": "git::https://github.com/terraform-aws-modules/terraform-aws-iam.git//modules/iam-user?ref=v2.3.0"
       },
       "user8": {
          "create_iam_user_login_profile": false,
          "force_destroy": true,
          "name": "user8",
          "password_reset_required": false,
-         "source": "git::https://github.com/terraform-aws-modules/terraform-aws-iam.git//modules/iam-user?ref=v2.1.0"
+         "source": "git::https://github.com/terraform-aws-modules/terraform-aws-iam.git//modules/iam-user?ref=v2.3.0"
       },
       "user9": {
          "create_iam_user_login_profile": false,
          "force_destroy": true,
          "name": "user9",
          "password_reset_required": false,
-         "source": "git::https://github.com/terraform-aws-modules/terraform-aws-iam.git//modules/iam-user?ref=v2.1.0"
+         "source": "git::https://github.com/terraform-aws-modules/terraform-aws-iam.git//modules/iam-user?ref=v2.3.0"
       }
    },
    "output": {
