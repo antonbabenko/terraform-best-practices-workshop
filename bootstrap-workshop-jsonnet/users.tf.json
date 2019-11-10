@@ -5,26 +5,26 @@
             "arn:aws:iam::aws:policy/PowerUserAccess"
          ],
          "group_users": [
-            "user1",
-            "user2",
-            "user3",
-            "user4",
-            "user5",
-            "user6",
-            "user7",
-            "user8",
-            "user9",
-            "user10",
-            "user11",
-            "user12",
-            "user13",
-            "user14",
-            "user15",
-            "user16",
-            "user17",
-            "user18",
-            "user19",
-            "user20"
+            "${module.user1.this_iam_user_name}",
+            "${module.user2.this_iam_user_name}",
+            "${module.user3.this_iam_user_name}",
+            "${module.user4.this_iam_user_name}",
+            "${module.user5.this_iam_user_name}",
+            "${module.user6.this_iam_user_name}",
+            "${module.user7.this_iam_user_name}",
+            "${module.user8.this_iam_user_name}",
+            "${module.user9.this_iam_user_name}",
+            "${module.user10.this_iam_user_name}",
+            "${module.user11.this_iam_user_name}",
+            "${module.user12.this_iam_user_name}",
+            "${module.user13.this_iam_user_name}",
+            "${module.user14.this_iam_user_name}",
+            "${module.user15.this_iam_user_name}",
+            "${module.user16.this_iam_user_name}",
+            "${module.user17.this_iam_user_name}",
+            "${module.user18.this_iam_user_name}",
+            "${module.user19.this_iam_user_name}",
+            "${module.user20.this_iam_user_name}"
          ],
          "name": "developers",
          "source": "git::https://github.com/terraform-aws-modules/terraform-aws-iam.git//modules/iam-group-with-policies?ref=v2.3.0"
@@ -43,12 +43,20 @@
          "password_reset_required": false,
          "source": "git::https://github.com/terraform-aws-modules/terraform-aws-iam.git//modules/iam-user?ref=v2.3.0"
       },
+      "user10_login_profile": {
+         "source": "./iam-user-login-profile",
+         "username": "${module.user10.this_iam_user_name}"
+      },
       "user11": {
          "create_iam_user_login_profile": false,
          "force_destroy": true,
          "name": "user11",
          "password_reset_required": false,
          "source": "git::https://github.com/terraform-aws-modules/terraform-aws-iam.git//modules/iam-user?ref=v2.3.0"
+      },
+      "user11_login_profile": {
+         "source": "./iam-user-login-profile",
+         "username": "${module.user11.this_iam_user_name}"
       },
       "user12": {
          "create_iam_user_login_profile": false,
@@ -57,12 +65,20 @@
          "password_reset_required": false,
          "source": "git::https://github.com/terraform-aws-modules/terraform-aws-iam.git//modules/iam-user?ref=v2.3.0"
       },
+      "user12_login_profile": {
+         "source": "./iam-user-login-profile",
+         "username": "${module.user12.this_iam_user_name}"
+      },
       "user13": {
          "create_iam_user_login_profile": false,
          "force_destroy": true,
          "name": "user13",
          "password_reset_required": false,
          "source": "git::https://github.com/terraform-aws-modules/terraform-aws-iam.git//modules/iam-user?ref=v2.3.0"
+      },
+      "user13_login_profile": {
+         "source": "./iam-user-login-profile",
+         "username": "${module.user13.this_iam_user_name}"
       },
       "user14": {
          "create_iam_user_login_profile": false,
@@ -71,12 +87,20 @@
          "password_reset_required": false,
          "source": "git::https://github.com/terraform-aws-modules/terraform-aws-iam.git//modules/iam-user?ref=v2.3.0"
       },
+      "user14_login_profile": {
+         "source": "./iam-user-login-profile",
+         "username": "${module.user14.this_iam_user_name}"
+      },
       "user15": {
          "create_iam_user_login_profile": false,
          "force_destroy": true,
          "name": "user15",
          "password_reset_required": false,
          "source": "git::https://github.com/terraform-aws-modules/terraform-aws-iam.git//modules/iam-user?ref=v2.3.0"
+      },
+      "user15_login_profile": {
+         "source": "./iam-user-login-profile",
+         "username": "${module.user15.this_iam_user_name}"
       },
       "user16": {
          "create_iam_user_login_profile": false,
@@ -85,12 +109,20 @@
          "password_reset_required": false,
          "source": "git::https://github.com/terraform-aws-modules/terraform-aws-iam.git//modules/iam-user?ref=v2.3.0"
       },
+      "user16_login_profile": {
+         "source": "./iam-user-login-profile",
+         "username": "${module.user16.this_iam_user_name}"
+      },
       "user17": {
          "create_iam_user_login_profile": false,
          "force_destroy": true,
          "name": "user17",
          "password_reset_required": false,
          "source": "git::https://github.com/terraform-aws-modules/terraform-aws-iam.git//modules/iam-user?ref=v2.3.0"
+      },
+      "user17_login_profile": {
+         "source": "./iam-user-login-profile",
+         "username": "${module.user17.this_iam_user_name}"
       },
       "user18": {
          "create_iam_user_login_profile": false,
@@ -99,12 +131,24 @@
          "password_reset_required": false,
          "source": "git::https://github.com/terraform-aws-modules/terraform-aws-iam.git//modules/iam-user?ref=v2.3.0"
       },
+      "user18_login_profile": {
+         "source": "./iam-user-login-profile",
+         "username": "${module.user18.this_iam_user_name}"
+      },
       "user19": {
          "create_iam_user_login_profile": false,
          "force_destroy": true,
          "name": "user19",
          "password_reset_required": false,
          "source": "git::https://github.com/terraform-aws-modules/terraform-aws-iam.git//modules/iam-user?ref=v2.3.0"
+      },
+      "user19_login_profile": {
+         "source": "./iam-user-login-profile",
+         "username": "${module.user19.this_iam_user_name}"
+      },
+      "user1_login_profile": {
+         "source": "./iam-user-login-profile",
+         "username": "${module.user1.this_iam_user_name}"
       },
       "user2": {
          "create_iam_user_login_profile": false,
@@ -120,12 +164,24 @@
          "password_reset_required": false,
          "source": "git::https://github.com/terraform-aws-modules/terraform-aws-iam.git//modules/iam-user?ref=v2.3.0"
       },
+      "user20_login_profile": {
+         "source": "./iam-user-login-profile",
+         "username": "${module.user20.this_iam_user_name}"
+      },
+      "user2_login_profile": {
+         "source": "./iam-user-login-profile",
+         "username": "${module.user2.this_iam_user_name}"
+      },
       "user3": {
          "create_iam_user_login_profile": false,
          "force_destroy": true,
          "name": "user3",
          "password_reset_required": false,
          "source": "git::https://github.com/terraform-aws-modules/terraform-aws-iam.git//modules/iam-user?ref=v2.3.0"
+      },
+      "user3_login_profile": {
+         "source": "./iam-user-login-profile",
+         "username": "${module.user3.this_iam_user_name}"
       },
       "user4": {
          "create_iam_user_login_profile": false,
@@ -134,12 +190,20 @@
          "password_reset_required": false,
          "source": "git::https://github.com/terraform-aws-modules/terraform-aws-iam.git//modules/iam-user?ref=v2.3.0"
       },
+      "user4_login_profile": {
+         "source": "./iam-user-login-profile",
+         "username": "${module.user4.this_iam_user_name}"
+      },
       "user5": {
          "create_iam_user_login_profile": false,
          "force_destroy": true,
          "name": "user5",
          "password_reset_required": false,
          "source": "git::https://github.com/terraform-aws-modules/terraform-aws-iam.git//modules/iam-user?ref=v2.3.0"
+      },
+      "user5_login_profile": {
+         "source": "./iam-user-login-profile",
+         "username": "${module.user5.this_iam_user_name}"
       },
       "user6": {
          "create_iam_user_login_profile": false,
@@ -148,12 +212,20 @@
          "password_reset_required": false,
          "source": "git::https://github.com/terraform-aws-modules/terraform-aws-iam.git//modules/iam-user?ref=v2.3.0"
       },
+      "user6_login_profile": {
+         "source": "./iam-user-login-profile",
+         "username": "${module.user6.this_iam_user_name}"
+      },
       "user7": {
          "create_iam_user_login_profile": false,
          "force_destroy": true,
          "name": "user7",
          "password_reset_required": false,
          "source": "git::https://github.com/terraform-aws-modules/terraform-aws-iam.git//modules/iam-user?ref=v2.3.0"
+      },
+      "user7_login_profile": {
+         "source": "./iam-user-login-profile",
+         "username": "${module.user7.this_iam_user_name}"
       },
       "user8": {
          "create_iam_user_login_profile": false,
@@ -162,74 +234,182 @@
          "password_reset_required": false,
          "source": "git::https://github.com/terraform-aws-modules/terraform-aws-iam.git//modules/iam-user?ref=v2.3.0"
       },
+      "user8_login_profile": {
+         "source": "./iam-user-login-profile",
+         "username": "${module.user8.this_iam_user_name}"
+      },
       "user9": {
          "create_iam_user_login_profile": false,
          "force_destroy": true,
          "name": "user9",
          "password_reset_required": false,
          "source": "git::https://github.com/terraform-aws-modules/terraform-aws-iam.git//modules/iam-user?ref=v2.3.0"
+      },
+      "user9_login_profile": {
+         "source": "./iam-user-login-profile",
+         "username": "${module.user9.this_iam_user_name}"
       }
    },
    "output": {
       "user1": {
-         "value": "export AWS_ACCESS_KEY_ID=${module.user1.this_iam_access_key_id} AWS_SECRET_ACCESS_KEY=${module.user1.this_iam_access_key_secret} AWS_REGION=eu-west-1"
+         "value": [
+            "export AWS_ACCESS_KEY_ID=${module.user1.this_iam_access_key_id} AWS_SECRET_ACCESS_KEY=${module.user1.this_iam_access_key_secret} AWS_REGION=eu-west-1",
+            "https://${data.aws_iam_account_alias.current.account_alias}.signin.aws.amazon.com/console/",
+            "Username: ${module.user1_login_profile.username}",
+            "Password: ${module.user1_login_profile.password}"
+         ]
       },
       "user10": {
-         "value": "export AWS_ACCESS_KEY_ID=${module.user10.this_iam_access_key_id} AWS_SECRET_ACCESS_KEY=${module.user10.this_iam_access_key_secret} AWS_REGION=eu-west-1"
+         "value": [
+            "export AWS_ACCESS_KEY_ID=${module.user10.this_iam_access_key_id} AWS_SECRET_ACCESS_KEY=${module.user10.this_iam_access_key_secret} AWS_REGION=eu-west-1",
+            "https://${data.aws_iam_account_alias.current.account_alias}.signin.aws.amazon.com/console/",
+            "Username: ${module.user10_login_profile.username}",
+            "Password: ${module.user10_login_profile.password}"
+         ]
       },
       "user11": {
-         "value": "export AWS_ACCESS_KEY_ID=${module.user11.this_iam_access_key_id} AWS_SECRET_ACCESS_KEY=${module.user11.this_iam_access_key_secret} AWS_REGION=eu-west-1"
+         "value": [
+            "export AWS_ACCESS_KEY_ID=${module.user11.this_iam_access_key_id} AWS_SECRET_ACCESS_KEY=${module.user11.this_iam_access_key_secret} AWS_REGION=eu-west-1",
+            "https://${data.aws_iam_account_alias.current.account_alias}.signin.aws.amazon.com/console/",
+            "Username: ${module.user11_login_profile.username}",
+            "Password: ${module.user11_login_profile.password}"
+         ]
       },
       "user12": {
-         "value": "export AWS_ACCESS_KEY_ID=${module.user12.this_iam_access_key_id} AWS_SECRET_ACCESS_KEY=${module.user12.this_iam_access_key_secret} AWS_REGION=eu-west-1"
+         "value": [
+            "export AWS_ACCESS_KEY_ID=${module.user12.this_iam_access_key_id} AWS_SECRET_ACCESS_KEY=${module.user12.this_iam_access_key_secret} AWS_REGION=eu-west-1",
+            "https://${data.aws_iam_account_alias.current.account_alias}.signin.aws.amazon.com/console/",
+            "Username: ${module.user12_login_profile.username}",
+            "Password: ${module.user12_login_profile.password}"
+         ]
       },
       "user13": {
-         "value": "export AWS_ACCESS_KEY_ID=${module.user13.this_iam_access_key_id} AWS_SECRET_ACCESS_KEY=${module.user13.this_iam_access_key_secret} AWS_REGION=eu-west-1"
+         "value": [
+            "export AWS_ACCESS_KEY_ID=${module.user13.this_iam_access_key_id} AWS_SECRET_ACCESS_KEY=${module.user13.this_iam_access_key_secret} AWS_REGION=eu-west-1",
+            "https://${data.aws_iam_account_alias.current.account_alias}.signin.aws.amazon.com/console/",
+            "Username: ${module.user13_login_profile.username}",
+            "Password: ${module.user13_login_profile.password}"
+         ]
       },
       "user14": {
-         "value": "export AWS_ACCESS_KEY_ID=${module.user14.this_iam_access_key_id} AWS_SECRET_ACCESS_KEY=${module.user14.this_iam_access_key_secret} AWS_REGION=eu-west-1"
+         "value": [
+            "export AWS_ACCESS_KEY_ID=${module.user14.this_iam_access_key_id} AWS_SECRET_ACCESS_KEY=${module.user14.this_iam_access_key_secret} AWS_REGION=eu-west-1",
+            "https://${data.aws_iam_account_alias.current.account_alias}.signin.aws.amazon.com/console/",
+            "Username: ${module.user14_login_profile.username}",
+            "Password: ${module.user14_login_profile.password}"
+         ]
       },
       "user15": {
-         "value": "export AWS_ACCESS_KEY_ID=${module.user15.this_iam_access_key_id} AWS_SECRET_ACCESS_KEY=${module.user15.this_iam_access_key_secret} AWS_REGION=eu-west-1"
+         "value": [
+            "export AWS_ACCESS_KEY_ID=${module.user15.this_iam_access_key_id} AWS_SECRET_ACCESS_KEY=${module.user15.this_iam_access_key_secret} AWS_REGION=eu-west-1",
+            "https://${data.aws_iam_account_alias.current.account_alias}.signin.aws.amazon.com/console/",
+            "Username: ${module.user15_login_profile.username}",
+            "Password: ${module.user15_login_profile.password}"
+         ]
       },
       "user16": {
-         "value": "export AWS_ACCESS_KEY_ID=${module.user16.this_iam_access_key_id} AWS_SECRET_ACCESS_KEY=${module.user16.this_iam_access_key_secret} AWS_REGION=eu-west-1"
+         "value": [
+            "export AWS_ACCESS_KEY_ID=${module.user16.this_iam_access_key_id} AWS_SECRET_ACCESS_KEY=${module.user16.this_iam_access_key_secret} AWS_REGION=eu-west-1",
+            "https://${data.aws_iam_account_alias.current.account_alias}.signin.aws.amazon.com/console/",
+            "Username: ${module.user16_login_profile.username}",
+            "Password: ${module.user16_login_profile.password}"
+         ]
       },
       "user17": {
-         "value": "export AWS_ACCESS_KEY_ID=${module.user17.this_iam_access_key_id} AWS_SECRET_ACCESS_KEY=${module.user17.this_iam_access_key_secret} AWS_REGION=eu-west-1"
+         "value": [
+            "export AWS_ACCESS_KEY_ID=${module.user17.this_iam_access_key_id} AWS_SECRET_ACCESS_KEY=${module.user17.this_iam_access_key_secret} AWS_REGION=eu-west-1",
+            "https://${data.aws_iam_account_alias.current.account_alias}.signin.aws.amazon.com/console/",
+            "Username: ${module.user17_login_profile.username}",
+            "Password: ${module.user17_login_profile.password}"
+         ]
       },
       "user18": {
-         "value": "export AWS_ACCESS_KEY_ID=${module.user18.this_iam_access_key_id} AWS_SECRET_ACCESS_KEY=${module.user18.this_iam_access_key_secret} AWS_REGION=eu-west-1"
+         "value": [
+            "export AWS_ACCESS_KEY_ID=${module.user18.this_iam_access_key_id} AWS_SECRET_ACCESS_KEY=${module.user18.this_iam_access_key_secret} AWS_REGION=eu-west-1",
+            "https://${data.aws_iam_account_alias.current.account_alias}.signin.aws.amazon.com/console/",
+            "Username: ${module.user18_login_profile.username}",
+            "Password: ${module.user18_login_profile.password}"
+         ]
       },
       "user19": {
-         "value": "export AWS_ACCESS_KEY_ID=${module.user19.this_iam_access_key_id} AWS_SECRET_ACCESS_KEY=${module.user19.this_iam_access_key_secret} AWS_REGION=eu-west-1"
+         "value": [
+            "export AWS_ACCESS_KEY_ID=${module.user19.this_iam_access_key_id} AWS_SECRET_ACCESS_KEY=${module.user19.this_iam_access_key_secret} AWS_REGION=eu-west-1",
+            "https://${data.aws_iam_account_alias.current.account_alias}.signin.aws.amazon.com/console/",
+            "Username: ${module.user19_login_profile.username}",
+            "Password: ${module.user19_login_profile.password}"
+         ]
       },
       "user2": {
-         "value": "export AWS_ACCESS_KEY_ID=${module.user2.this_iam_access_key_id} AWS_SECRET_ACCESS_KEY=${module.user2.this_iam_access_key_secret} AWS_REGION=eu-west-1"
+         "value": [
+            "export AWS_ACCESS_KEY_ID=${module.user2.this_iam_access_key_id} AWS_SECRET_ACCESS_KEY=${module.user2.this_iam_access_key_secret} AWS_REGION=eu-west-1",
+            "https://${data.aws_iam_account_alias.current.account_alias}.signin.aws.amazon.com/console/",
+            "Username: ${module.user2_login_profile.username}",
+            "Password: ${module.user2_login_profile.password}"
+         ]
       },
       "user20": {
-         "value": "export AWS_ACCESS_KEY_ID=${module.user20.this_iam_access_key_id} AWS_SECRET_ACCESS_KEY=${module.user20.this_iam_access_key_secret} AWS_REGION=eu-west-1"
+         "value": [
+            "export AWS_ACCESS_KEY_ID=${module.user20.this_iam_access_key_id} AWS_SECRET_ACCESS_KEY=${module.user20.this_iam_access_key_secret} AWS_REGION=eu-west-1",
+            "https://${data.aws_iam_account_alias.current.account_alias}.signin.aws.amazon.com/console/",
+            "Username: ${module.user20_login_profile.username}",
+            "Password: ${module.user20_login_profile.password}"
+         ]
       },
       "user3": {
-         "value": "export AWS_ACCESS_KEY_ID=${module.user3.this_iam_access_key_id} AWS_SECRET_ACCESS_KEY=${module.user3.this_iam_access_key_secret} AWS_REGION=eu-west-1"
+         "value": [
+            "export AWS_ACCESS_KEY_ID=${module.user3.this_iam_access_key_id} AWS_SECRET_ACCESS_KEY=${module.user3.this_iam_access_key_secret} AWS_REGION=eu-west-1",
+            "https://${data.aws_iam_account_alias.current.account_alias}.signin.aws.amazon.com/console/",
+            "Username: ${module.user3_login_profile.username}",
+            "Password: ${module.user3_login_profile.password}"
+         ]
       },
       "user4": {
-         "value": "export AWS_ACCESS_KEY_ID=${module.user4.this_iam_access_key_id} AWS_SECRET_ACCESS_KEY=${module.user4.this_iam_access_key_secret} AWS_REGION=eu-west-1"
+         "value": [
+            "export AWS_ACCESS_KEY_ID=${module.user4.this_iam_access_key_id} AWS_SECRET_ACCESS_KEY=${module.user4.this_iam_access_key_secret} AWS_REGION=eu-west-1",
+            "https://${data.aws_iam_account_alias.current.account_alias}.signin.aws.amazon.com/console/",
+            "Username: ${module.user4_login_profile.username}",
+            "Password: ${module.user4_login_profile.password}"
+         ]
       },
       "user5": {
-         "value": "export AWS_ACCESS_KEY_ID=${module.user5.this_iam_access_key_id} AWS_SECRET_ACCESS_KEY=${module.user5.this_iam_access_key_secret} AWS_REGION=eu-west-1"
+         "value": [
+            "export AWS_ACCESS_KEY_ID=${module.user5.this_iam_access_key_id} AWS_SECRET_ACCESS_KEY=${module.user5.this_iam_access_key_secret} AWS_REGION=eu-west-1",
+            "https://${data.aws_iam_account_alias.current.account_alias}.signin.aws.amazon.com/console/",
+            "Username: ${module.user5_login_profile.username}",
+            "Password: ${module.user5_login_profile.password}"
+         ]
       },
       "user6": {
-         "value": "export AWS_ACCESS_KEY_ID=${module.user6.this_iam_access_key_id} AWS_SECRET_ACCESS_KEY=${module.user6.this_iam_access_key_secret} AWS_REGION=eu-west-1"
+         "value": [
+            "export AWS_ACCESS_KEY_ID=${module.user6.this_iam_access_key_id} AWS_SECRET_ACCESS_KEY=${module.user6.this_iam_access_key_secret} AWS_REGION=eu-west-1",
+            "https://${data.aws_iam_account_alias.current.account_alias}.signin.aws.amazon.com/console/",
+            "Username: ${module.user6_login_profile.username}",
+            "Password: ${module.user6_login_profile.password}"
+         ]
       },
       "user7": {
-         "value": "export AWS_ACCESS_KEY_ID=${module.user7.this_iam_access_key_id} AWS_SECRET_ACCESS_KEY=${module.user7.this_iam_access_key_secret} AWS_REGION=eu-west-1"
+         "value": [
+            "export AWS_ACCESS_KEY_ID=${module.user7.this_iam_access_key_id} AWS_SECRET_ACCESS_KEY=${module.user7.this_iam_access_key_secret} AWS_REGION=eu-west-1",
+            "https://${data.aws_iam_account_alias.current.account_alias}.signin.aws.amazon.com/console/",
+            "Username: ${module.user7_login_profile.username}",
+            "Password: ${module.user7_login_profile.password}"
+         ]
       },
       "user8": {
-         "value": "export AWS_ACCESS_KEY_ID=${module.user8.this_iam_access_key_id} AWS_SECRET_ACCESS_KEY=${module.user8.this_iam_access_key_secret} AWS_REGION=eu-west-1"
+         "value": [
+            "export AWS_ACCESS_KEY_ID=${module.user8.this_iam_access_key_id} AWS_SECRET_ACCESS_KEY=${module.user8.this_iam_access_key_secret} AWS_REGION=eu-west-1",
+            "https://${data.aws_iam_account_alias.current.account_alias}.signin.aws.amazon.com/console/",
+            "Username: ${module.user8_login_profile.username}",
+            "Password: ${module.user8_login_profile.password}"
+         ]
       },
       "user9": {
-         "value": "export AWS_ACCESS_KEY_ID=${module.user9.this_iam_access_key_id} AWS_SECRET_ACCESS_KEY=${module.user9.this_iam_access_key_secret} AWS_REGION=eu-west-1"
+         "value": [
+            "export AWS_ACCESS_KEY_ID=${module.user9.this_iam_access_key_id} AWS_SECRET_ACCESS_KEY=${module.user9.this_iam_access_key_secret} AWS_REGION=eu-west-1",
+            "https://${data.aws_iam_account_alias.current.account_alias}.signin.aws.amazon.com/console/",
+            "Username: ${module.user9_login_profile.username}",
+            "Password: ${module.user9_login_profile.password}"
+         ]
       }
    }
 }

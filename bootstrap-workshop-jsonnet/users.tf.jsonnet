@@ -22,19 +22,30 @@ local users_fixed = [
       force_destroy: true,
       create_iam_user_login_profile: false,
     } for user in users_fixed
+  } +
+  {
+    [user.replaced_username + "_login_profile"]: {
+      source: "./iam-user-login-profile",
+
+      username: "${module." + user.replaced_username + ".this_iam_user_name}",
+    } for user in users_fixed
   } + {
     ["developers_group"]: {
       source: source_iam_group,
 
       name: "developers",
-      group_users: [user.aws for user in users_fixed],
+      group_users: ["${module." + user.replaced_username + ".this_iam_user_name}" for user in users_fixed],
       custom_group_policy_arns: ["arn:aws:iam::aws:policy/PowerUserAccess"],
     }
 }
   ,
   output: {
     [user.replaced_username]: {
-      value: "export AWS_ACCESS_KEY_ID=${module." + user.replaced_username + ".this_iam_access_key_id} AWS_SECRET_ACCESS_KEY=${module." + user.replaced_username + ".this_iam_access_key_secret} AWS_REGION=" + aws_region,
+      value: [
+      "export AWS_ACCESS_KEY_ID=${module." + user.replaced_username + ".this_iam_access_key_id} AWS_SECRET_ACCESS_KEY=${module." + user.replaced_username + ".this_iam_access_key_secret} AWS_REGION=" + aws_region,
+      "https://${data.aws_iam_account_alias.current.account_alias}.signin.aws.amazon.com/console/",
+      "Username: " + "${module." + user.replaced_username + "_login_profile.username}",
+      "Password: " + "${module." + user.replaced_username + "_login_profile.password}"]
     } for user in users_fixed
   }
 }

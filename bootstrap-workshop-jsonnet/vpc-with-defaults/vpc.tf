@@ -30,8 +30,8 @@ module "vpc" {
   public_subnet_ipv6_prefixes = [for k, v in data.aws_availability_zones.available.names : k]
 }
 
-resource "null_resource" "this" {
-  provisioner "local-exec" {
-    command = "aws ec2 create-default-vpc --region ${data.aws_region.selected.name} --profile ${local.aws_cli_profile}"
-  }
-}
+//resource "null_resource" "this" {
+//  provisioner "local-exec" {
+//    command = "aws ec2 create-default-vpc --region ${data.aws_region.selected.name} --profile ${local.aws_cli_profile}"
+//  }
+//}
