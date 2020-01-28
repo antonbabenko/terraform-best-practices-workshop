@@ -21,6 +21,10 @@ Solutions are inside [solutions/0-basic](https://github.com/antonbabenko/terrafo
 
 1. Verify that EC2 instance has been launched (using `aws_instance` data source, AWS CLI or AWS Console).
 
-1. Connect to EC2 instance by SSH (eg, using EC2 keypair)
+1. Launch 2 similar EC2 instances (using [`count` meta-argument](https://www.terraform.io/docs/configuration/resources.html#meta-arguments) on `aws_instance` resource) and output their public IPs.
 
-1. Using [terraform-aws-elb module](https://github.com/terraform-aws-modules/terraform-aws-elb/) create a public-facing Elastic Load Balancer which will stay in front of EC2 instances launched by an autoscaling group
+1. Explore various [Terraform built-in functions](https://www.terraform.io/docs/configuration/functions.html) and learn the difference between accessing element in a list using short form (`[0]`) and [element() function](https://www.terraform.io/docs/configuration/functions/element.html).
+
+1. Connect to EC2 instance by SSH (eg, using EC2 keypair).
+
+1. Using [terraform-aws-elb module](https://github.com/terraform-aws-modules/terraform-aws-elb/) create a public-facing Elastic Load Balancer which will stay in front of EC2 instances launched by an autoscaling group.

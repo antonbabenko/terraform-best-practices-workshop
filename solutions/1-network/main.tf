@@ -2,7 +2,7 @@
 # 1. Set values of AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY environment variables.
 
 provider "aws" {
-  region  = "us-west-1"
+  region  = "eu-west-1"
   version = "~> 2.0"
 
   allowed_account_ids = ["905033465232"] # 835367859851 - anton-demo; 905033465232 - tfworkshop
@@ -45,6 +45,10 @@ module "vpc" {
   azs             = ["eu-west-1a", "eu-west-1b", "eu-west-1c"]
   private_subnets = ["10.10.1.0/24", "10.10.2.0/24", "10.10.3.0/24"]
   public_subnets  = ["10.10.11.0/24", "10.10.12.0/24", "10.10.13.0/24"]
+
+  //  # Use arguments below with data-source aws_availability_zones.available to span resources in all availability zones
+  //  azs            = [for v in data.aws_availability_zones.available.names : v]
+  //  public_subnets = [for k, v in data.aws_availability_zones.available.names : cidrsubnet("10.10.0.0/16", 8, k)]
 
   enable_dns_hostnames = true
   enable_dns_support   = true
@@ -93,6 +97,7 @@ module "autoscaling" {
   instance_type                = "t2.micro"
   security_groups              = [module.ec2_security_group.this_security_group_id]
   user_data                    = data.template_file.ec2_userdata.rendered
+  key_name                     = ""
   associate_public_ip_address  = true
   recreate_asg_when_lc_changes = true
 
@@ -133,7 +138,7 @@ module "ec2_security_group" {
 # aws ec2 describe-instances --filters 'Name=tag:Name,Values=tfworkshop-*' --output json --region eu-west-1 | jq -r '.Reservations[].Instances[].PublicIpAddress'
 ##################################################
 //data "aws_instance" "created" {
-//  instance_tags = "${local.tags}"
+//  instance_tags = local.tags
 //
-//  depends_on = ["module.autoscaling"]
+//  depends_on = [module.autoscaling]
 //}

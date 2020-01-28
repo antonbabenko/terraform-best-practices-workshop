@@ -23,8 +23,8 @@ Solutions are inside [solutions/1-network](https://github.com/antonbabenko/terra
 
 ## Extra tasks
 
-1. Verify that EC2 instance has been launched (using `aws_instance` data source, AWS CLI, AWS Console).
+1. Extend your solution to make use of Terraform 0.12 expressions and make VPC resources to span across all availability zones available for you (replace hard-coded values in lists with [`for` expressions](https://www.terraform.io/docs/configuration/expressions.html#for-expressions) and [`cidrsubnet()` functions](https://www.terraform.io/docs/configuration/functions/cidrsubnet.html))
 
-1. Connect to EC2 instance by SSH (eg, using EC2 keypair)
+1. Create SSH key-pair to be able to SSH to instances. Create [TLS private key](https://www.terraform.io/docs/providers/tls/r/private_key.html) using `RSA` algorithm, and use it to create [EC2 key pair](https://www.terraform.io/docs/providers/aws/r/key_pair.html). Update launch configurations to launch instances using correct `key_name`.
 
-1. Using [terraform-aws-elb module](https://github.com/terraform-aws-modules/terraform-aws-elb/) create a public-facing Elastic Load Balancer which will stay in front of EC2 instances launched by an autoscaling group
+1. Using [terraform-aws-elb module](https://github.com/terraform-aws-modules/terraform-aws-elb/) create a public-facing Elastic Load Balancer which will stay in front of EC2 instances launched by an autoscaling group.

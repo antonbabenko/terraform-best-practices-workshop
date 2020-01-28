@@ -1,11 +1,21 @@
 # Notes:
-# 1. Set values of AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY environment variables.
+# 1. Set values of AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY environment variables (eg, use https://github.com/99designs/aws-vault ).
 
-provider "aws" {
-  region  = "us-west-1"
-  version = "~> 2.0"
+terraform {
+  required_version = "~> 0.12.0"
+
+  required_providers {
+    aws = "~> 2.0"
+  }
 }
 
+provider "aws" {
+  region = "eu-west-1"
+}
+
+############
+# Variables
+############
 variable "name" {
   description = "Name of EC2 instance"
 }
@@ -14,9 +24,9 @@ variable "instance_type" {
   description = "EC2 instance type"
 }
 
-###################################################################
-# Data sources to get VPC, subnets, security group and AMI details
-###################################################################
+######################################################################
+# Data sources - VPC, subnets, default security group and AMI details
+######################################################################
 data "aws_vpc" "default" {
   default = true
 }
@@ -30,6 +40,8 @@ data "aws_security_group" "default" {
   name   = "default"
 }
 
+# Finding a Linux AMI: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/finding-an-ami.html
+# AWS CLI: aws ec2 describe-images --filters Name=name,Values="amzn-ami-hvm-*-x86_64-gp2"
 data "aws_ami" "amazon_linux" {
   most_recent = true
 
@@ -42,16 +54,11 @@ data "aws_ami" "amazon_linux" {
       "amzn-ami-hvm-*-x86_64-gp2",
     ]
   }
-
-  filter {
-    name = "owner-alias"
-
-    values = [
-      "amazon",
-    ]
-  }
 }
 
+############
+# Resources
+############
 resource "aws_instance" "web" {
   ami           = data.aws_ami.amazon_linux.image_id
   instance_type = var.instance_type
@@ -62,6 +69,9 @@ resource "aws_instance" "web" {
   }
 }
 
+##########
+# Outputs
+##########
 output "public_ip" {
   value = aws_instance.web.public_ip
 }

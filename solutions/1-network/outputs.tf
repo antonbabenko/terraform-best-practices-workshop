@@ -31,5 +31,5 @@ output "launch_configuration_id" {
 }
 
 //output "created_instance_public_ips" {
-//  value = "${data.aws_instance.created.*.public_ip}"
+//  value = data.aws_instance.created.*.public_ip
 //}
