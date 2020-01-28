@@ -3,8 +3,8 @@
 
 local users = import "users.json";
 
-local source_iam_user = "git::https://github.com/terraform-aws-modules/terraform-aws-iam.git//modules/iam-user?ref=v2.3.0";
-local source_iam_group = "git::https://github.com/terraform-aws-modules/terraform-aws-iam.git//modules/iam-group-with-policies?ref=v2.3.0";
+local source_iam_user = "git::https://github.com/terraform-aws-modules/terraform-aws-iam.git//modules/iam-user?ref=v2.6.0";
+local source_iam_group = "git::https://github.com/terraform-aws-modules/terraform-aws-iam.git//modules/iam-group-with-policies?ref=v2.6.0";
 local aws_region = "eu-west-1";
 
 local users_fixed = [
