@@ -2,10 +2,10 @@
 # 1. Set values of AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY environment variables (eg, use https://github.com/99designs/aws-vault ).
 
 terraform {
-  required_version = "~> 0.12.0"
+  required_version = ">= 0.12.6, < 0.14"
 
   required_providers {
-    aws = "~> 2.0"
+    aws = ">= 2.46, < 4.0"
   }
 }
 

@@ -1,11 +1,19 @@
 # Notes:
 # 1. Set values of AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY environment variables.
 
+terraform {
+  required_version = ">= 0.12.6, < 0.14"
+
+  required_providers {
+    aws = ">= 2.46, < 4.0"
+  }
+}
+
 provider "aws" {
   region  = "eu-west-1"
-  version = "~> 2.0"
+  version = "~> 3.0"
 
-  allowed_account_ids = ["905033465232"] # 835367859851 - anton-demo; 905033465232 - tfworkshop
+  //  allowed_account_ids = ["905033465232"] # 835367859851 - anton-demo; 905033465232 - tfworkshop
 
   //  # Alternatively, IAM role can be assumed
   //  assume_role {

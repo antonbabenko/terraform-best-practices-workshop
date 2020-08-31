@@ -3,7 +3,7 @@
 
 provider "aws" {
   region  = "us-west-1"
-  version = "~> 2.0"
+  version = "~> 3.0"
 }
 
 // Enable remote state to keep tfstate in the shared S3 bucket (should be created in advance outside of terraform)

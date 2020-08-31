@@ -4,10 +4,10 @@
 # 3. Add data source to fetch ID of default security group, subnet and ID of Amazon linux AMI
 
 terraform {
-  required_version = "~> 0.12.0"
+  required_version = ">= 0.12.6, < 0.14"
 
   required_providers {
-    aws = "~> 2.0"
+    aws = ">= 2.46, < 4.0"
   }
 }
 
