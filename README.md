@@ -13,7 +13,7 @@ If you are looking for a Terraform trainer, mentor for your project, or other Te
 
 - [ ] Follow `@antonbabenko` on [GitHub](https://github.com/antonbabenko), [Twitter](https://twitter.com/antonbabenko), [Linkedin](https://linkedin.com/in/antonbabenko).
 - [ ] Join chat room on Gitter during or before the workshop - [gitter.im/terraform-best-practices-workshop/Lobby](https://gitter.im/terraform-best-practices-workshop/Lobby).
-- [ ] Install the latest version of [Terraform 0.12](https://learn.hashicorp.com/terraform/getting-started/install.html).
+- [ ] Install the latest version of [Terraform 0.13](https://learn.hashicorp.com/tutorials/terraform/install-cli).
 - [ ] Install the latest version of [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/installing.html).
 - [ ] Make sure that you have a [GitHub](https://github.com/) account created.
 - [ ] Mac, Linux or Windows - all is fine as long as you can use it. If you want, you can get a Linux box running using Vagrant+VirtualBox and install software from above on it.
@@ -47,8 +47,8 @@ Learn how to manage AWS infrastructure using existing building blocks - [terrafo
 ## Instructor's checklist
 
  - [x] Verify access to a workshop AWS account (`905033465232`), S3 bucket for remote states (`tfworkshop`), DynamoDB table for locking (`tfworkshop`). Region - `eu-west-1`.
- - [x] Before workshop - create IAM users and IAM group (`developers`) by running `cd bootstrap-workshop-jsonnet && make apply`.
- - [x] After workshop - remove all resources in the whole AWS account by running `cd bootstrap-workshop-jsonnet && make aws-nuke-for-real` or remove just IAM users and IAM group by running `cd bootstrap-workshop-jsonnet && make destroy`.
+ - [x] Before workshop - create IAM users and IAM group (`developers`) by running `cd bootstrap-workshop && terraform init && terraform apply`.
+ - [x] After workshop - remove all resources in the whole AWS account by running `cd bootstrap-workshop && make aws-nuke-for-real` or remove just IAM users and IAM group by running `cd bootstrap-workshop && terraform init && terraform destroy`.
 
 
 ## License
