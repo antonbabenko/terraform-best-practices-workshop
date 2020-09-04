@@ -66,7 +66,7 @@ module "user" {
 }
 
 module "login_profile" {
-  source = "../iam-user-login-profile"
+  source = "./iam-user-login-profile"
 
   for_each = toset(local.users)
 
